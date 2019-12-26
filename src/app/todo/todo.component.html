@@ -1,15 +1,30 @@
 <h1>{{title}}</h1>
+{{tempValue}}
+<form [formGroup]="todoForm">
+<input type="text" name="test" placeholder="test" (change)="onChange($event)">
+</form>
+<form [formGroup]="todoForm" (ngSubmit)="add()">
+    <input placeholder="name" formControlName="name" name="todo" type="text">
+    <input placeholder="description" formControlName="description" name="description" type="text" >
+
+    <button type="submit">Add</button>
+</form>
+
 <table>
     <thead>
         <tr>
             <th>Id</th>
             <th>Name</th>
+            <th>description</th>
+            <th>Delete</th>
         </tr>
     </thead>
     <tbody>
         <tr *ngFor="let todo of todos; let i=index">
             <td>{{i}}</td>
-            <td>{{todo}}</td>
+            <td>{{todo.name}}</td>
+            <td>{{todo.description}}</td>
+            <td (click)="delete(todo)">Delete</td>
         </tr>
     </tbody>
 </table>
