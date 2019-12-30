@@ -1,10 +1,8 @@
 <h1>{{title}}</h1>
 {{tempValue}}
-<form [formGroup]="todoForm">
-<input type="text" name="test" placeholder="test" (change)="onChange($event)">
-</form>
+
 <form [formGroup]="todoForm" (ngSubmit)="add()">
-    <input placeholder="name" formControlName="name" name="todo" type="text">
+    <input placeholder="name" formControlName="name" name="name" type="text">
     <input placeholder="description" formControlName="description" name="description" type="text" >
 
     <button type="submit">Add</button>

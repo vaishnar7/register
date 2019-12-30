@@ -18,8 +18,8 @@ export class TodoComponent implements OnInit {
 
   tempValue='';
 
-  constructor(private fb: FormBuilder) {
-    this.todoForm = fb.group({
+  constructor(private formBuilder: FormBuilder) {
+    this.todoForm = formBuilder.group({
       name: '',
       description: ''
     });
