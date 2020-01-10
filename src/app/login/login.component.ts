@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { CommonService } from '../services/common.service';
 
 @Component({
   selector: 'app-login',
@@ -14,6 +15,8 @@ export class LoginComponent implements OnInit {
   }
 
   view(){
+    //this.errorService.showError();
     this.router.navigate(['todo']);
+    //this.router.navigateByUrl('/todo');
   }
 }

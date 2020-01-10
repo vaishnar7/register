@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormBuilder } from '@angular/forms';
+import { CommonService } from '../services/common.service';
+import { TodoService } from '../services/todo.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-todo',
@@ -8,43 +11,23 @@ import { FormControl, FormBuilder } from '@angular/forms';
 })
 export class TodoComponent implements OnInit {
   title="Todo 1";
-  todos=[
-    { name:"todo 1", description:"description1" },
-    { name:"todo 2", description:"description2" },
-    { name:"todo 3", description:"description3" },
-  ];
-  newTodo="";
-  todoForm;
+  todos:any=[];
 
-  tempValue='';
-
-  constructor(private formBuilder: FormBuilder) {
-    this.todoForm = formBuilder.group({
-      name: '',
-      description: ''
-    });
-  }
+  constructor(private router: Router,
+    private todoService:TodoService) { }
 
   ngOnInit() {
+    this.todoService.get()
+    .subscribe(data=>{
+      this.todos=data;
+    });
   }
-
+  addTodo(){
+    this.router.navigate(['add']);
+  }
   delete(todo){
     this.todos=this.todos.filter(function(t){
       return t!=todo;
     })
-  }
-  add(){
-    this.todos.push({
-      name: this.todoForm.value.name,
-      description: this.todoForm.value.description,
-    });
-    // this.newTodo="";
-  }
-
-  onTextChange(event){
-    this.newTodo=event.target.value;
-  }
-  onChange($event){
-    this.tempValue = $event.target.value;
   }
 }
