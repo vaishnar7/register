@@ -17,6 +17,9 @@ export class TodoComponent implements OnInit {
     private todoService:TodoService) { }
 
   ngOnInit() {
+    this.getTodos();
+  }
+  getTodos(){
     this.todoService.get()
     .subscribe(data=>{
       this.todos=data;
@@ -25,9 +28,13 @@ export class TodoComponent implements OnInit {
   addTodo(){
     this.router.navigate(['add']);
   }
+  edit(todo){
+    this.router.navigate(['edit',todo._id]);
+  }
   delete(todo){
-    this.todos=this.todos.filter(function(t){
-      return t!=todo;
-    })
+    this.todoService.delete(todo._id)
+    .subscribe(data=>{
+      this.getTodos();
+    });
   }
 }

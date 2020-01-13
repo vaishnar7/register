@@ -7,6 +7,7 @@
             <th>Name</th>
             <th>description</th>
             <th>Delete</th>
+            <th>Edit</th>
         </tr>
     </thead>
     <tbody>
@@ -16,6 +17,7 @@
             <td>{{todo.name}}</td>
             <td>{{todo.description}}</td>
             <td (click)="delete(todo)">Delete</td>
+            <td (click)="edit(todo)">Edit</td>
         </tr>
     </tbody>
 </table>

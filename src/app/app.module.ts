@@ -11,6 +11,7 @@ import { TestComponent } from './test/test.component';
 import { SignupComponent } from './signup/signup.component';
 import { AddtodoComponent } from './addtodo/addtodo.component';
 import { HttpClientModule } from '@angular/common/http';
+import { EditComponent } from './edit/edit.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { HttpClientModule } from '@angular/common/http';
     LoginComponent,
     TestComponent,
     SignupComponent,
-    AddtodoComponent
+    AddtodoComponent,
+    EditComponent
   ],
   imports: [
     BrowserModule,
