@@ -34,10 +34,5 @@ export class AddtodoComponent implements OnInit {
         this.todoForm.reset();
         this.router.navigate(['todo']);
       });
-    // this.todos.push({
-    //   name: this.todoForm.value.name,
-    //   description: this.todoForm.value.description,
-    // });
-    // this.newTodo="";
   }
 }
