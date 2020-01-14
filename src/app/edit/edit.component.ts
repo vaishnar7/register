@@ -14,15 +14,22 @@ export class EditComponent implements OnInit {
   constructor(private router: Router,
     private route: ActivatedRoute,
     private formBuilder: FormBuilder,
-    private todoService:TodoService) { 
-    this.todoForm = formBuilder.group({
-      name: '',
-      description: ''
-    });
+    private todoService:TodoService) {
+      this.todoForm = this.formBuilder.group({
+        name: '',
+        description: ''
+      });
   }
   ngOnInit() {
     this.route.params.subscribe(params=>{
       this.id=params.id;
+      this.todoService.getById(this.id)
+      .subscribe((data:any)=>{
+        this.todoForm.setValue({
+          name:data.name,
+          description:data.description
+        })
+      })
     });
   }
 

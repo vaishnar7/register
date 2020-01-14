@@ -25,6 +25,9 @@ export class TodoService {
   get(){
     return this.http.get(baseUrl);
   }
+  getById(id){
+    return this.http.get(`${baseUrl}todo/${id}`);
+  }
   delete(id){
     return this.http.delete(`${baseUrl}delete/${id}`);
   }
