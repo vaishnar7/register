@@ -1,6 +1,14 @@
 <form [formGroup]="todoForm" (ngSubmit)="add()">
-    <input placeholder="name" formControlName="name" name="name" type="text" required>
-    <input placeholder="description" formControlName="description" name="description" type="text" >
-
-    <button type="submit">Add</button>
+    <div>
+        <input placeholder="name" formControlName="name" name="name" type="text">
+        <div *ngIf="hasError('name')">
+            <p *ngIf="get('name').errors.required">Name is required</p>
+            <p *ngIf="get('name').errors.minlength">Name should be atleast 3 characters</p>
+        </div>
+    </div>
+    <div>
+        <input placeholder="description" formControlName="description" name="description" type="text" >
+        <p *ngIf="get('description').errors">You have an error in description</p>
+    </div>
+    <button type="submit" [disabled]="!todoForm.valid">Add</button>
 </form>

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { TodoService } from '../services/todo.service';
 
 @Component({
@@ -11,13 +11,21 @@ import { TodoService } from '../services/todo.service';
 export class EditComponent implements OnInit {
   id=""
   todoForm;
+
+  errors:any={};
   constructor(private router: Router,
     private route: ActivatedRoute,
     private formBuilder: FormBuilder,
     private todoService:TodoService) {
       this.todoForm = this.formBuilder.group({
-        name: '',
-        description: ''
+        name: new FormControl('',[
+          Validators.required,
+          Validators.minLength(3)
+        ]),
+        description: new FormControl('',[
+          Validators.required,
+          Validators.minLength(5)
+        ]),
       });
   }
   ngOnInit() {
@@ -36,8 +44,6 @@ export class EditComponent implements OnInit {
 
   edit(){
     if(!this.todoForm.valid){
-      alert("You have an error")
-      //this.commonService.showError();
       return;
     }
     this.todoService.edit(this.id,this.todoForm.value.name,
