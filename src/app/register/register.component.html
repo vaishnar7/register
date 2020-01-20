@@ -34,7 +34,7 @@
         <div *ngIf="hasError('confirmPassword')">
             <p *ngIf="get('confirmPassword').errors.required">Confirm Password is required</p>
             <p *ngIf="get('confirmPassword').errors.minlength">Confirm Password should be atleast 3 characters</p>
-            <p *ngIf="get('confirmPassword').errors.passwordNotSame">Confirm Password doesn't match</
+            <p *ngIf="get('confirmPassword').errors.passwordNotSame">Confirm Password doesn't match</p>
         </div>
         
     </div>
