@@ -27,7 +27,7 @@ export class AddtodoComponent implements OnInit {
 
   ngOnInit() {
   }
-
+  
   add(){
     if(!this.todoForm.valid){
       console.log(this.todoForm);

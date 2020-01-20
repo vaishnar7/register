@@ -12,6 +12,12 @@ import { SignupComponent } from './signup/signup.component';
 import { AddtodoComponent } from './addtodo/addtodo.component';
 import { HttpClientModule } from '@angular/common/http';
 import { EditComponent } from './edit/edit.component';
+import { CustomPipe } from './pipes/custom.pipe';
+import { MycustompipePipe } from './pipes/mycustompipe.pipe';
+import { CustomdirectiveDirective } from './directives/customdirective.directive';
+import { HighlightDirective } from './directives/highlight.directive';
+import { HeaderComponent } from './components/header/header.component';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +28,13 @@ import { EditComponent } from './edit/edit.component';
     TestComponent,
     SignupComponent,
     AddtodoComponent,
-    EditComponent
+    EditComponent,
+    CustomPipe,
+    MycustompipePipe,
+    CustomdirectiveDirective,
+    HighlightDirective,
+    HeaderComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

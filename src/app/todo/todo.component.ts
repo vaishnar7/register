@@ -10,8 +10,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./todo.component.css']
 })
 export class TodoComponent implements OnInit {
-  title="Todo 1";
+  title="Todo Listing";
   todos:any=[];
+  count =0;
 
   constructor(private router: Router,
     private todoService:TodoService) { }
@@ -36,5 +37,8 @@ export class TodoComponent implements OnInit {
     .subscribe(data=>{
       this.getTodos();
     });
+  }
+  onHeaderClick(event){
+    this.count+=event;
   }
 }

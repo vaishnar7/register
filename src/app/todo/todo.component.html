@@ -1,4 +1,6 @@
+<app-header (sendData)="onHeaderClick($event)" [title]="title"></app-header>
 <h1>{{title}}</h1>
+<p>Header was clicked {{count}} times.</p>
 <button (click)="addTodo()">Add Todo</button>
 <table>
     <thead>
@@ -14,7 +16,7 @@
         <tr *ngIf="todos.length==0">No todos..</tr>
         <tr *ngFor="let todo of todos; let i=index">
             <td>{{todo._id}}</td>
-            <td>{{todo.name}}</td>
+            <td appCustomdirective>{{todo.name| custom:'11111' }}</td>
             <td>{{todo.description}}</td>
             <td (click)="delete(todo)">Delete</td>
             <td (click)="edit(todo)">Edit</td>
