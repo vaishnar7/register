@@ -18,6 +18,8 @@ import { CustomdirectiveDirective } from './directives/customdirective.directive
 import { HighlightDirective } from './directives/highlight.directive';
 import { HeaderComponent } from './components/header/header.component';
 import { RegisterComponent } from './register/register.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { from } from 'rxjs';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,8 @@ import { RegisterComponent } from './register/register.component';
     CustomdirectiveDirective,
     HighlightDirective,
     HeaderComponent,
-    RegisterComponent
+    RegisterComponent,
+    BrowserAnimationsModule
   ],
   imports: [
     BrowserModule,

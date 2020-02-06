@@ -13,9 +13,13 @@ export class TodoComponent implements OnInit {
   title="Todo Listing";
   todos:any=[];
   count =0;
+  user={};
+  
 
   constructor(private router: Router,
-    private todoService:TodoService) { }
+    private todoService:TodoService,private commonService:CommonService) { 
+      this.user= commonService.getItem('user')
+    }
 
   ngOnInit() {
     this.getTodos();

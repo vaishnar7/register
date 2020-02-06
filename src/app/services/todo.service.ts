@@ -13,8 +13,10 @@ export class TodoService {
   add(name,description){
     return this.http.post(`${baseUrl}create`,{
       name,
-      description
-    });
+      description,
+    
+    },{withCredentials:true});
+
   }
   edit(id,name,description){
     return this.http.put(`${baseUrl}edit/${id}`,{
@@ -23,7 +25,11 @@ export class TodoService {
     });
   }
   get(){
-    return this.http.get(baseUrl);
+    return this.http.get(baseUrl,{
+      withCredentials:true
+
+    });
+   
   }
   getById(id){
     return this.http.get(`${baseUrl}todo/${id}`);

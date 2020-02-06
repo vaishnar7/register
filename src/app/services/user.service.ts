@@ -11,4 +11,11 @@ export class UserService {
   register(user){
     return this.http.post(`${baseUrl}register`,user);
   }
+  login(data){
+    return this.http.post(`${baseUrl}login`,data,{
+      withCredentials:true
+
+    });
+    
+  }
 }
